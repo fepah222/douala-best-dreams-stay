@@ -1,8 +1,9 @@
 
 /*
   NEHTAN | Contemporary African Boutique Hospitality
-  Design direction: warm ivory, forest charcoal, restrained bronze.
-  Preserves existing HTML and JavaScript class hooks.
+  Design: Contemporary African Luxury
+  Primary appearance: Light
+  Dark mode: Supported
 */
 
 /* =========================================
@@ -34,8 +35,8 @@
   --ivory: #f4f0e8;
   --paper: #fffdf8;
 
-  --shadow-card: 0 18px 48px -30px rgba(32, 40, 35, .28);
-  --shadow-hover: 0 26px 60px -30px rgba(32, 40, 35, .34);
+  --shadow-card: 0 18px 48px -30px rgba(32,40,35,.28);
+  --shadow-hover: 0 26px 60px -30px rgba(32,40,35,.34);
 
   --font-display: 'Playfair Display', Georgia, serif;
   --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
@@ -47,7 +48,9 @@
   --content-width: min(1180px, calc(100% - 64px));
 }
 
-/* Optional dark theme retained for the existing theme switcher. */
+/* =========================================
+   2. DARK THEME
+========================================= */
 
 :root.dark {
   color-scheme: dark;
@@ -72,12 +75,12 @@
   --forest-soft: #d9d2c6;
   --paper: #29332d;
 
-  --shadow-card: 0 18px 48px -30px rgba(0, 0, 0, .55);
-  --shadow-hover: 0 26px 60px -30px rgba(0, 0, 0, .65);
+  --shadow-card: 0 18px 48px -30px rgba(0,0,0,.55);
+  --shadow-hover: 0 26px 60px -30px rgba(0,0,0,.65);
 }
 
 /* =========================================
-   2. GLOBAL STYLING
+   3. GLOBAL STYLING
 ========================================= */
 
 * {
@@ -183,7 +186,7 @@ img {
 }
 
 /* =========================================
-   3. BUTTONS
+   4. BUTTONS
 ========================================= */
 
 .gradient-button,
@@ -237,7 +240,7 @@ img {
 }
 
 /* =========================================
-   4. HEADER AND NAVIGATION
+   5. HEADER AND NAVIGATION
 ========================================= */
 
 .site-header,
@@ -335,11 +338,6 @@ img {
   background: var(--paper);
 }
 
-.preferences .lang-icon {
-  margin-left: .3rem;
-  color: var(--muted-foreground);
-}
-
 .pref-btn {
   min-width: 30px;
   height: 28px;
@@ -406,7 +404,6 @@ img {
   padding: .8rem max(24px, calc((100% - 1180px)/2)) 1.2rem;
 
   border-top: 1px solid var(--border);
-
   background: var(--background);
   font-size: .82rem;
 }
@@ -426,7 +423,7 @@ img {
 }
 
 /* =========================================
-   5. HOMEPAGE
+   6. HOMEPAGE
 ========================================= */
 
 .home-main {
@@ -496,8 +493,6 @@ img {
   font-size: .96rem;
   line-height: 1.9;
 }
-
-/* Three property showcases */
 
 .location-grid {
   display: grid;
@@ -618,7 +613,7 @@ img {
 }
 
 /* =========================================
-   6. PROPERTY PAGE HERO
+   7. PROPERTY PAGE HERO
 ========================================= */
 
 .property-main {
@@ -675,8 +670,6 @@ img {
   margin-top: 1.8rem;
 }
 
-/* Property statistics */
-
 .stats {
   display: flex;
   flex-wrap: wrap;
@@ -710,8 +703,6 @@ img {
   letter-spacing: .09em;
   text-transform: uppercase;
 }
-
-/* Main image carousel */
 
 .hero-carousel {
   position: relative;
@@ -790,7 +781,7 @@ img {
 }
 
 /* =========================================
-   7. CONTENT SECTIONS
+   8. CONTENT SECTIONS
 ========================================= */
 
 .content-section,
@@ -829,7 +820,7 @@ img {
 }
 
 /* =========================================
-   8. PROPERTY FEATURES
+   9. PROPERTY FEATURES
 ========================================= */
 
 .feature-grid {
@@ -888,7 +879,7 @@ img {
 }
 
 /* =========================================
-   9. PHOTO GALLERY
+   10. PHOTO GALLERY
 ========================================= */
 
 .gallery-section {
@@ -967,7 +958,7 @@ img {
 }
 
 /* =========================================
-   10. AMENITIES
+   11. AMENITIES
 ========================================= */
 
 .amenity-grid {
@@ -1025,7 +1016,7 @@ img {
 }
 
 /* =========================================
-   11. POLICY COMPONENTS
+   12. POLICY COMPONENTS
 ========================================= */
 
 .policy-section {
@@ -1098,7 +1089,7 @@ img {
 }
 
 /* =========================================
-   12. CONTACT SECTION
+   13. CONTACT SECTION
 ========================================= */
 
 .contact-section {
@@ -1174,7 +1165,7 @@ a.contact-card:hover {
 }
 
 /* =========================================
-   13. FOOTER
+   14. FOOTER
 ========================================= */
 
 .footer {
@@ -1228,7 +1219,7 @@ a.contact-card:hover {
 }
 
 /* =========================================
-   14. IMAGE ERROR FEEDBACK
+   15. IMAGE ERROR FEEDBACK
 ========================================= */
 
 img.image-load-error {
@@ -1246,7 +1237,37 @@ img.image-load-error {
 }
 
 /* =========================================
-   15. TABLET RESPONSIVENESS
+   16. DARK MODE BUTTON CONTRAST FIX
+========================================= */
+
+:root.dark .gradient-button,
+:root.dark .contact-cta {
+  background: #c49a6c;
+  border-color: #c49a6c;
+  color: #202823 !important;
+}
+
+:root.dark .gradient-button:hover,
+:root.dark .contact-cta:hover {
+  background: #d5ae83;
+  border-color: #d5ae83;
+  color: #202823 !important;
+}
+
+:root.dark .gradient-button .icon,
+:root.dark .contact-cta .icon {
+  color: #202823 !important;
+}
+
+/* Ensure button links retain correct contrast */
+
+:root.dark a.gradient-button,
+:root.dark a.contact-cta {
+  color: #202823 !important;
+}
+
+/* =========================================
+   17. TABLET RESPONSIVENESS
 ========================================= */
 
 @media (max-width: 1023px) {
@@ -1296,7 +1317,7 @@ img.image-load-error {
 }
 
 /* =========================================
-   16. MOBILE RESPONSIVENESS
+   18. MOBILE RESPONSIVENESS
 ========================================= */
 
 @media (max-width: 700px) {
@@ -1483,7 +1504,7 @@ img.image-load-error {
 }
 
 /* =========================================
-   17. SMALL MOBILE SCREENS
+   19. SMALL MOBILE SCREENS
 ========================================= */
 
 @media (max-width: 380px) {
@@ -1520,7 +1541,7 @@ img.image-load-error {
 }
 
 /* =========================================
-   18. ACCESSIBILITY
+   20. ACCESSIBILITY
 ========================================= */
 
 @media (prefers-reduced-motion: reduce) {
