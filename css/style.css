@@ -248,7 +248,6 @@ img {
   position: sticky;
   top: 0;
   z-index: 50;
-  inset: auto;
 
   border-bottom: 1px solid var(--border);
   background: var(--background);
