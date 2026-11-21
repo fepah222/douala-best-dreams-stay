@@ -245,17 +245,13 @@ img {
 
 .site-header,
 .home-header {
-  position: relative;
+  position: sticky;
+  top: 0;
   z-index: 50;
   inset: auto;
 
   border-bottom: 1px solid var(--border);
   background: var(--background);
-}
-
-.site-header {
-  position: sticky;
-  top: 0;
 }
 
 .header-inner {
@@ -300,6 +296,11 @@ img {
   font-size: .75rem;
   font-weight: 600;
   letter-spacing: .04em;
+}
+
+.home-nav {
+  margin-left: auto;
+  margin-right: 1.5rem;
 }
 
 .desktop-nav a,
@@ -414,9 +415,16 @@ img {
 }
 
 .mobile-nav a {
-  padding: .6rem 0;
+  display: flex;
+  align-items: center;
+  min-height: 46px;
+  padding: .65rem .2rem;
+  border-bottom: 1px solid var(--border);
   color: var(--muted-foreground);
 }
+
+.mobile-nav a:last-child { border-bottom: 0; }
+.mobile-nav a:focus-visible { outline-offset: -2px; }
 
 .mobile-nav a:hover {
   color: var(--primary);
