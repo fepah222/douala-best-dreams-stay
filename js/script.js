@@ -331,9 +331,24 @@
 
           <a class="brand" href="index.html">NEHTAN</a>
 
-          ${preferencesMarkup()}
+          <nav class="desktop-nav home-nav" aria-label="Main navigation">
+            <a href="bepanda.html">Bépanda</a>
+            <a href="bonamoussadi.html">Bonamoussadi</a>
+            <a href="logbessou.html">Logbessou</a>
+          </nav>
 
+          <div class="header-actions">
+            ${preferencesMarkup()}
+            <button class="menu-toggle" type="button" data-menu aria-label="Open navigation menu" aria-controls="home-mobile-nav" aria-expanded="false">
+              ${icon('menu')}
+            </button>
+          </div>
         </div>
+        <nav class="mobile-nav" id="home-mobile-nav" data-mobile-nav aria-label="Mobile navigation">
+          <a href="bepanda.html">Bépanda</a>
+          <a href="bonamoussadi.html">Bonamoussadi</a>
+          <a href="logbessou.html">Logbessou</a>
+        </nav>
       </header>
 
       <main class="container home-main">
@@ -784,8 +799,11 @@
             </a>
 
             <button class="menu-toggle"
+                    type="button"
                     data-menu
-                    aria-label="Toggle menu">
+                    aria-label="Open navigation menu"
+                    aria-controls="property-mobile-nav"
+                    aria-expanded="false">
               ${icon('menu')}
             </button>
 
@@ -793,7 +811,7 @@
 
         </div>
 
-        <nav class="mobile-nav" data-mobile-nav>
+        <nav class="mobile-nav" id="property-mobile-nav" data-mobile-nav aria-label="Mobile navigation">
 
           <a href="index.html">
             ← ${fr ? 'Tous les établissements' : 'All Locations'}
@@ -876,10 +894,8 @@
 
         menuButton.innerHTML = icon(open ? 'close' : 'menu');
 
-        menuButton.setAttribute(
-          'aria-expanded',
-          String(open)
-        );
+        menuButton.setAttribute('aria-expanded', String(open));
+        menuButton.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
 
       });
 
@@ -891,11 +907,27 @@
 
       link.addEventListener('click', () => {
 
-        document.querySelector('[data-mobile-nav]')
-          ?.classList.remove('open');
-
+        const nav = document.querySelector('[data-mobile-nav]');
+        nav?.classList.remove('open');
+        const button = document.querySelector('[data-menu]');
+        if (button) {
+          button.innerHTML = icon('menu');
+          button.setAttribute('aria-expanded', 'false');
+          button.setAttribute('aria-label', 'Open navigation menu');
+        }
       });
+    });
 
+    document.addEventListener('keydown', event => {
+      if (event.key !== 'Escape') return;
+      const nav = document.querySelector('[data-mobile-nav]');
+      const button = document.querySelector('[data-menu]');
+      if (!nav || !button || !nav.classList.contains('open')) return;
+      nav.classList.remove('open');
+      button.innerHTML = icon('menu');
+      button.setAttribute('aria-expanded', 'false');
+      button.setAttribute('aria-label', 'Open navigation menu');
+      button.focus();
     });
 
   }
